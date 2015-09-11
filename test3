@@ -1,0 +1,6 @@
+A | B => C
+A | D => F
+D | B => H
+D | E => G
+=AB
+?CFGH
