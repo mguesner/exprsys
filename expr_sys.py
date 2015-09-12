@@ -50,6 +50,9 @@ def eval(expr, facts):
 
 def query_analyse(query, rules, facts):
 	ret = "none"
+	if query in facts:
+		print ('{:s} is True'.format(query))
+		return "1"
 	for rule in rules:
 		members = rule.split("=>")
 		if (len(members) < 2):
@@ -95,8 +98,16 @@ for line in in_file:
 		elif line[0].startswith("?"):
 			mode = 2
 		else :
-			for char in lines[0]:
-				if (not char.isupper() and char != '=' and char != '>' and char != '^' and char != '|' and char != ' ' and char != '+' and char != '\n' and char != '!' and char != "(" and char != ")"):
+			members = lines[0].split("=>")
+			if (len(members) < 2):
+				print("error: syntax")
+				exit()
+			for char in members[0]:
+				if (not char.isupper() and char != '^' and char != '|' and char != '\t' and char != ' ' and char != '+' and char != '\n' and char != '!' and char != "(" and char != ")"):
+					print "error: syntax"
+					exit()
+			for char in members[1]:
+				if (not char.isupper()  and char != ' ' and char != '+' and char != '\n'):
 					print "error: syntax"
 					exit()
 			rules.append(lines[0]);
@@ -108,7 +119,6 @@ for line in in_file:
 				print "error"
 				exit()
 			for fact in lines[0][1:len(lines[0]) - 1]:
-				print fact
 				if (fact.isupper()):
 					facts.append(fact)
 				elif (fact != ' '):
