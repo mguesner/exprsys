@@ -99,7 +99,7 @@ for line in in_file:
 			mode = 2
 		else :
 			members = lines[0].split("=>")
-			if (len(members) < 2):
+			if (len(members) != 2):
 				print("error: syntax")
 				exit()
 			for char in members[0]:
