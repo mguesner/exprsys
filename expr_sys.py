@@ -137,8 +137,8 @@ for line in in_file:
 for query in queries:
 	print ('{:s}:'.format(query))
 	if query_analyse(query, rules, facts) == "1":
-		print ("So {:s} is True".format(query))
+		print ("So {:s} is True\n".format(query))
 	else:
-		print ("So {:s} is False".format(query))
+		print ("So {:s} is False\n".format(query))
 
 in_file.close();
