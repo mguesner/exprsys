@@ -1,0 +1,19 @@
+C => E # C implies E
+A + B + C => D # A and B and C implies D
+A | B => C # A or B implies C
+A + !B => F # A and not B implies F
+C | !G => H # C or not G implies H
+V ^ W => X
+A + B => Y + Z # A and B implies Y and Z
+A + B => Y + Z
+A + B => Y + Z
+A + B => Y + Z
+A + B => Y + Z
+A + B => Y + Z
+A + B => I
+I => R 
+R => N
+=ABG # Initial facts : A, B and G are true. All others are false.
+# If no facts are initially true, then a simple "=" followed
+# by a newline is used
+?GVXN# Queries : What are G, V and X ?
